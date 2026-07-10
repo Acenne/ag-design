@@ -23,7 +23,7 @@ const CASES: CaseStudy[] = [
     name: "Marathon Plumbing, Heating & Air",
     location: "Redesign",
     description:
-      "A conversion-first homepage for a multi-trade operation — quote form above the fold, trust badges, and a book-now / click-to-call header that follows you down the page.",
+      "A conversion-first homepage for a multi-trade operation: quote form above the fold, trust badges, and a book-now / click-to-call header that follows you down the page.",
     results: [
       { value: "Above-fold", label: "quote form + service selector" },
       { value: "1-tap", label: "book or call from any screen" },
@@ -37,25 +37,25 @@ const CASES: CaseStudy[] = [
     name: "Corrigan Mechanical",
     location: "Commercial",
     description:
-      "A commercial build centered on maintenance agreements and a 24/7 dispatch flow — designed for facility managers, not homeowners.",
+      "A commercial build centered on maintenance agreements and a 24/7 dispatch flow, designed for facility managers, not homeowners.",
     results: [
       { value: "B2B", label: "maintenance-contract funnel" },
       { value: "24/7", label: "emergency dispatch flow" },
     ],
     tint: "#7fb2d9",
-    screenshot: "Corrigan homepage screenshot — 1280×800",
+    screenshot: "Corrigan homepage screenshot, 1280×800",
   },
   {
     name: "BlueRidge Comfort Systems",
     location: "Family-owned",
     description:
-      "A warm, referral-friendly brand for a family company — with a heat-pump education hub built for the rebate-driven buyer.",
+      "A warm, referral-friendly brand for a family company, with a heat-pump education hub built for the rebate-driven buyer.",
     results: [
       { value: "0.9s", label: "mobile load time on 4G" },
       { value: "7", label: "pages incl. heat-pump guide" },
     ],
     tint: "#8fd0b8",
-    screenshot: "BlueRidge homepage screenshot — 1280×800",
+    screenshot: "BlueRidge homepage screenshot, 1280×800",
   },
 ];
 
@@ -117,7 +117,7 @@ export function Work() {
             <Accent variant="ticks">Designed to book jobs.</Accent>
           </h2>
           <p className="mt-4 max-w-[56ch] text-[17px] text-muted-foreground">
-            Three builds from our portfolio — each designed around how a
+            Three builds from our portfolio, each designed around how a
             different kind of HVAC company wins work, from late-night
             emergency calls to commercial maintenance contracts.
           </p>

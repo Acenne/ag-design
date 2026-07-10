@@ -20,9 +20,9 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "A&G Design — Websites for HVAC Companies That Book More Jobs",
+  title: "A&G Design: Websites for HVAC Companies That Book More Jobs",
   description:
-    "A&G Design builds high-converting websites exclusively for heating & air companies — engineered to rank locally, load instantly, and turn searches into service calls.",
+    "A&G Design builds high-converting websites exclusively for heating & air companies, engineered to rank locally, load instantly, and turn searches into service calls.",
 };
 
 export default function RootLayout({

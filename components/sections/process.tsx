@@ -10,12 +10,12 @@ const STEPS = [
   {
     num: "02",
     title: "Design",
-    body: "You see your homepage design within days. We revise together until it feels like your company — not a template.",
+    body: "You see your homepage design within days. We revise together until it feels like your company, not a template.",
   },
   {
     num: "03",
     title: "Build",
-    body: "Built in Webflow — or WordPress, Framer, whatever you prefer — with service-area SEO structure and tracking, tested on real phones.",
+    body: "Built in Webflow (or WordPress, Framer, whatever you prefer) with service-area SEO structure and tracking, tested on real phones.",
   },
   {
     num: "04",

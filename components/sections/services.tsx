@@ -15,7 +15,7 @@ const SERVICES = [
     num: "01",
     icon: MonitorSmartphone,
     title: "Conversion-first web design",
-    body: "Custom design built around how homeowners actually hire — clear pricing cues, trust signals, and a call button that's never more than a thumb away.",
+    body: "Custom design built around how homeowners actually hire: clear pricing cues, trust signals, and a call button that's never more than a thumb away.",
     image: "Homeowner booking a service call",
     src: "/images/homeowner-call.jpg",
     position: "object-center",
@@ -37,7 +37,7 @@ const SERVICES = [
     num: "03",
     icon: PhoneCall,
     title: "Booking & lead systems",
-    body: "Online scheduling, smart forms, call tracking, and missed-call text-back — wired into ServiceTitan, Housecall Pro, or whatever runs your shop.",
+    body: "Online scheduling, smart forms, call tracking, and missed-call text-back, wired into ServiceTitan, Housecall Pro, or whatever runs your shop.",
     image: "Lead & booking dashboard",
     src: "/images/booking-dashboard.jpg",
     position: "object-top",
@@ -70,7 +70,7 @@ export function Services() {
             <Accent variant="frame">website</Accent> needs.
           </h2>
           <p className="mt-4 max-w-[56ch] text-[17px] text-muted-foreground">
-            We only work with HVAC and mechanical contractors — so nothing is
+            We only work with HVAC and mechanical contractors, so nothing is
             figured out on your dime.
           </p>
         </Reveal>
@@ -144,7 +144,7 @@ export function Services() {
                 We build Webflow-first.
               </strong>{" "}
               It launches fast, stays secure, and lets you edit text and photos
-              yourself — no developer on retainer. But it&apos;s your website:
+              yourself, no developer on retainer. But it&apos;s your website:
               if you&apos;d rather be on WordPress, Framer, Squarespace, or
               custom code, we&apos;ll happily build on your stack.
             </p>

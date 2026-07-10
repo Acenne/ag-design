@@ -41,7 +41,7 @@ export function SiteHeader() {
         <a
           href="#top"
           className="flex items-baseline gap-2 py-3"
-          aria-label="A&G Design — home"
+          aria-label="A&G Design, home"
         >
           <span className="font-heading text-[22px] font-extrabold tracking-tight">
             A&amp;G

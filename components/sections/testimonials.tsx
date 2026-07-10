@@ -19,7 +19,7 @@ const QUOTES = [
   },
   {
     quote:
-      "My dad built this company on referrals. The new site is the first thing that's ever brought in work on its own — and it looks like us.",
+      "My dad built this company on referrals. The new site is the first thing that's ever brought in work on its own, and it looks like us.",
     initials: "TW",
     name: "Tyler Whitson",
     role: "GM, BlueRidge Comfort Systems",
@@ -56,7 +56,7 @@ export function Testimonials() {
                 </blockquote>
                 <figcaption className="flex items-center gap-3.5 text-sm text-muted-foreground">
                   <ImagePlaceholder
-                    label={`Headshot: ${q.name} — 96×96`}
+                    label={`Headshot: ${q.name}, 96×96`}
                     compact
                     className="size-11 shrink-0 rounded-full"
                   />

@@ -31,7 +31,7 @@ export function TradeBand() {
         </p>
         <p className="mt-5 max-w-[46ch] text-[16px] text-muted-foreground">
           You do the hard, physical work of keeping homes comfortable. Your
-          website should pull its weight just as hard — and that&apos;s the only
+          website should pull its weight just as hard, and that&apos;s the only
           thing we build.
         </p>
       </div>

@@ -62,8 +62,8 @@ export function Pricing() {
             Flat pricing. <Accent variant="dashes">No surprises.</Accent>
           </h2>
           <p className="mt-4 max-w-[56ch] text-[17px] text-muted-foreground">
-            Sized to how you sell — priced so one or two booked installs cover
-            it. Design, build, copywriting, and launch — all included. 50%
+            Sized to how you sell, priced so one or two booked installs cover
+            it. Design, build, copywriting, and launch, all included. 50%
             books your spot, 50% at launch.
           </p>
         </Reveal>
@@ -131,7 +131,7 @@ export function Pricing() {
                 Love-it guarantee.
               </strong>{" "}
               We revise the design until you&apos;re happy before final
-              payment — if we can&apos;t get it right, you don&apos;t pay the
+              payment. If we can&apos;t get it right, you don&apos;t pay the
               balance.
             </p>
           </aside>

@@ -15,7 +15,7 @@ function validate(values: { name: string; company: string; email: string }): Err
   if (!values.email.trim()) {
     errors.email = "Please enter your email.";
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
-    errors.email = "That email doesn't look right — check for typos.";
+    errors.email = "That email doesn't look right, check for typos.";
   }
   return errors;
 }
@@ -75,7 +75,7 @@ export function Contact() {
             </h2>
             <p className="mt-4 max-w-[56ch] text-[17px] text-muted-foreground">
               Book a free 20-minute strategy call. We&apos;ll audit your current
-              site and rankings live — useful whether you hire us or not.
+              site and rankings live, useful whether you hire us or not.
             </p>
             <ul className="mt-10 grid gap-4">
               <li className="flex items-center gap-3.5 text-[15.5px] text-muted-foreground">
@@ -92,25 +92,25 @@ export function Contact() {
               </li>
               <li className="flex items-center gap-3.5 text-[15.5px] text-muted-foreground">
                 <MapPin className="size-[19px] shrink-0 text-muted-foreground/60" strokeWidth={1.5} aria-hidden="true" />
-                <span className="py-2">Montreal, QC — serving HVAC firms across North America</span>
+                <span className="py-2">Montreal, QC, serving HVAC firms across North America</span>
               </li>
             </ul>
 
             {/* The A&G behind A&G Design — unique to contact */}
             <div className="mt-10 flex items-center gap-5 rounded-2xl border border-border bg-card/60 p-5">
               <ImagePlaceholder
-                label="Photo: Aaron & Grace in the studio — 480×360"
+                label="Photo: Aaron & Grace in the studio, 480×360"
                 ratio="4/3"
                 className="w-32 shrink-0 rounded-xl"
                 compact
               />
               <div>
                 <p className="text-[14.5px] text-muted-foreground">
-                  You&apos;ll talk to Aaron and Grace — the A&amp;G in A&amp;G
+                  You&apos;ll talk to Aaron and Grace, the A&amp;G in A&amp;G
                   Design. No handoffs, no account managers.
                 </p>
                 <p className="mt-2 font-serif text-lg italic text-foreground/85">
-                  — Aaron &amp; Grace
+                  Aaron &amp; Grace
                 </p>
               </div>
             </div>
@@ -187,7 +187,7 @@ export function Contact() {
                   className="flex items-start gap-2.5 rounded-xl border border-emerald-400/25 bg-emerald-400/10 px-4 py-3.5 text-[14.5px] text-emerald-300"
                 >
                   <CheckCircle2 className="mt-0.5 size-[18px] shrink-0" aria-hidden="true" />
-                  Thanks — your request is in. We&apos;ll be in touch within one business day.
+                  Thanks, your request is in. We&apos;ll be in touch within one business day.
                 </p>
               )}
             </form>

@@ -102,7 +102,7 @@ export function Hero() {
         <Reveal delay={2}>
           <p className="mx-auto mt-6 max-w-[54ch] text-base md:text-lg text-muted-foreground">
             A&amp;G Design builds high-converting websites exclusively for HVAC
-            firms — engineered to rank in your service area, load instantly on
+            firms, engineered to rank in your service area, load instantly on
             any phone, and book more jobs while your techs are on the road.
           </p>
         </Reveal>

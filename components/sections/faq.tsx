@@ -6,23 +6,23 @@ import { ImagePlaceholder } from "@/components/image-placeholder";
 const FAQS = [
   {
     q: "Why do you only work with HVAC companies?",
-    a: "Focus compounds. We study what a good cost-per-lead looks like in your trade, which pages rank for emergency searches, and how homeowners choose a contractor at 11pm with a dead furnace. A generalist agency learns your business on your budget — we've made it our entire focus.",
+    a: "Focus compounds. We study what a good cost-per-lead looks like in your trade, which pages rank for emergency searches, and how homeowners choose a contractor at 11pm with a dead furnace. A generalist agency learns your business on your budget; we've made it our entire focus.",
   },
   {
     q: "How long does a project take?",
-    a: "Starter sites go live in about two weeks; Complete in three to four, since it includes 12+ pages. The most common delay is waiting on photos and licensing info from your side — we give you a simple checklist on day one so nothing stalls.",
+    a: "Starter sites go live in about two weeks; Complete in three to four, since it includes 12+ pages. The most common delay is waiting on photos and licensing info from your side, so we give you a simple checklist on day one so nothing stalls.",
   },
   {
     q: "What do you build with?",
-    a: "Webflow, by preference — it launches fast, stays secure, and you can edit text and photos yourself without calling a developer. That said, it's your website: if you'd rather be on WordPress, Framer, Squarespace, or hand-coded, we're happy to build on your stack instead.",
+    a: "Webflow, by preference. It launches fast, stays secure, and you can edit text and photos yourself without calling a developer. That said, it's your website: if you'd rather be on WordPress, Framer, Squarespace, or hand-coded, we're happy to build on your stack instead.",
   },
   {
     q: "Do you work with our existing branding?",
-    a: "Yes. If you have a logo and colors you love, we design around them. If your brand needs a refresh, we can include a light rebrand — most companies keep their trucks and uniforms as-is and we modernize everything digital.",
+    a: "Yes. If you have a logo and colors you love, we design around them. If your brand needs a refresh, we can include a light rebrand; most companies keep their trucks and uniforms as-is and we modernize everything digital.",
   },
   {
     q: "How does payment work?",
-    a: "Simple: a 50% deposit books your project and locks your start date, and the remaining 50% is due at launch — after you've approved the final site. The Care plan bills monthly and you can cancel anytime.",
+    a: "Simple: a 50% deposit books your project and locks your start date, and the remaining 50% is due at launch, after you've approved the final site. The Care plan bills monthly and you can cancel anytime.",
   },
   {
     q: "Can you integrate with our field software?",
@@ -69,12 +69,12 @@ export function Faq() {
           <div className="mt-10 flex flex-wrap items-center gap-5 rounded-2xl border border-border bg-background p-6 md:p-7">
             <div className="flex -space-x-3" aria-hidden="true">
               <ImagePlaceholder
-                label="Founder headshot: Aaron — 96×96"
+                label="Founder headshot: Aaron, 96×96"
                 compact
                 className="size-12 rounded-full border-solid bg-card"
               />
               <ImagePlaceholder
-                label="Founder headshot: Grace — 96×96"
+                label="Founder headshot: Grace, 96×96"
                 compact
                 className="size-12 rounded-full border-solid bg-card"
               />
@@ -83,7 +83,7 @@ export function Faq() {
               <strong className="font-semibold text-foreground">
                 Still have a question?
               </strong>{" "}
-              Ask Aaron or Grace directly — no ticket queue, no chatbot.
+              Ask Aaron or Grace directly, no ticket queue, no chatbot.
             </p>
             <a
               href="mailto:info@agdesignworks.com"
