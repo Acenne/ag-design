@@ -99,18 +99,18 @@ export function Contact() {
             {/* The A&G behind A&G Design — unique to contact */}
             <div className="mt-10 flex items-center gap-5 rounded-2xl border border-border bg-card/60 p-5">
               <ImagePlaceholder
-                label="Photo: Aaron & Grace in the studio, 480×360"
+                label="Photo: Amaan in the studio, 480×360"
                 ratio="4/3"
                 className="w-32 shrink-0 rounded-xl"
                 compact
               />
               <div>
                 <p className="text-[14.5px] text-muted-foreground">
-                  You&apos;ll talk to Aaron and Grace, the A&amp;G in A&amp;G
+                  You&apos;ll talk to Amaan, the founder of A&amp;G
                   Design. No handoffs, no account managers.
                 </p>
                 <p className="mt-2 font-serif text-lg italic text-foreground/85">
-                  Aaron &amp; Grace
+                  Amaan
                 </p>
               </div>
             </div>

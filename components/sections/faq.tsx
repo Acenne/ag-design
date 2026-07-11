@@ -64,32 +64,25 @@ export function Faq() {
           ))}
         </Reveal>
 
-        {/* Direct line to the founders — unique to FAQ */}
+        {/* Direct line to the founder — unique to FAQ */}
         <Reveal delay={1}>
           <div className="mt-10 flex flex-wrap items-center gap-5 rounded-2xl border border-border bg-background p-6 md:p-7">
-            <div className="flex -space-x-3" aria-hidden="true">
-              <ImagePlaceholder
-                label="Founder headshot: Aaron, 96×96"
-                compact
-                className="size-12 rounded-full border-solid bg-card"
-              />
-              <ImagePlaceholder
-                label="Founder headshot: Grace, 96×96"
-                compact
-                className="size-12 rounded-full border-solid bg-card"
-              />
-            </div>
+            <ImagePlaceholder
+              label="Founder headshot: Amaan, 96×96"
+              compact
+              className="size-12 shrink-0 rounded-full border-solid bg-card"
+            />
             <p className="min-w-52 flex-1 text-[15px] text-muted-foreground">
               <strong className="font-semibold text-foreground">
                 Still have a question?
               </strong>{" "}
-              Ask Aaron or Grace directly, no ticket queue, no chatbot.
+              Ask Amaan directly, no ticket queue, no chatbot.
             </p>
             <a
               href="mailto:info@agdesignworks.com"
               className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full border border-foreground/25 px-5 py-2.5 text-sm font-semibold transition-all duration-200 hover:-translate-y-px hover:border-foreground"
             >
-              Email the founders
+              Email Amaan
               <ArrowRight className="size-4" strokeWidth={2} aria-hidden="true" />
             </a>
           </div>
