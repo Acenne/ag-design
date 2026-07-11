@@ -84,7 +84,15 @@ function BrowserFrame({
           aria-hidden="true"
         />
       </div>
-      <AssetImage src={src} alt={screenshot} ratio="16/10" position={position} className="border-0" />
+      <AssetImage
+        src={src}
+        alt={screenshot}
+        ratio="16/10"
+        position={position}
+        className="border-0"
+        sizes="(min-width: 1024px) 33vw, 100vw"
+        quality={95}
+      />
     </div>
   );
 }

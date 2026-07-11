@@ -72,6 +72,7 @@ export function Faq() {
               alt="Amaan, founder of A&G Design"
               position="object-top"
               className="size-12 shrink-0 rounded-full"
+              sizes="48px"
             />
             <p className="min-w-52 flex-1 text-[15px] text-muted-foreground">
               <strong className="font-semibold text-foreground">

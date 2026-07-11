@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { ImageIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -9,11 +10,16 @@ import { cn } from "@/lib/utils";
    wire the layout now and drop assets in later without breaking the build.
    `alt` doubles as the placeholder caption, so keep it descriptive.
 
+   Uses next/image (not a raw <img>) so the server resamples each photo down
+   to the size it's actually displayed at. A raw <img> ships the full-res
+   file and leans on the browser's cheap bilinear filter to shrink it —
+   fine for a 2x downscale, but visibly blurry/aliased once a large source
+   (e.g. a 2000px photo in a 48px avatar) is squeezed down by 10-30x.
+
    Non-fill mode always resolves to an explicit aspect ratio (defaulting to
-   1/1) so the container has a real height for h-full/object-cover to size
+   1/1) so the container has a real height for the fill image to size
    against — without one, a percentage height resolves against the parent's
-   auto height per spec, so the <img> falls back to its natural intrinsic
-   size and blows out of the box instead of being clipped by it. */
+   auto height per spec and the box collapses or the image overflows it. */
 export function AssetImage({
   src,
   alt,
@@ -22,6 +28,8 @@ export function AssetImage({
   fill = false,
   position = "object-center",
   imgClassName = "",
+  sizes = "100vw",
+  quality = 90,
 }: {
   src?: string;
   alt: string;
@@ -30,6 +38,8 @@ export function AssetImage({
   fill?: boolean;
   position?: string;
   imgClassName?: string;
+  sizes?: string;
+  quality?: number;
 }) {
   const [ok, setOk] = useState(true);
   const shell = fill ? "absolute inset-0 h-full w-full" : "relative w-full";
@@ -40,13 +50,14 @@ export function AssetImage({
       className={cn("overflow-hidden", shell, className)}
     >
       {src && ok ? (
-        // eslint-disable-next-line @next/next/no-img-element -- graceful fallback needs onError; file may not exist yet
-        <img
+        <Image
           src={src}
           alt={alt}
-          loading="lazy"
+          fill
+          sizes={sizes}
+          quality={quality}
           onError={() => setOk(false)}
-          className={cn("h-full w-full object-cover", position, imgClassName)}
+          className={cn("object-cover", position, imgClassName)}
         />
       ) : (
         <div className="flex h-full w-full flex-col items-center justify-center gap-2 border-2 border-dashed border-foreground/20 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,currentColor_10px,currentColor_11px)] text-foreground/[0.06]">
