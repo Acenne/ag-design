@@ -1,7 +1,7 @@
 import { Plus, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { Accent } from "@/components/accent";
-import { ImagePlaceholder } from "@/components/image-placeholder";
+import { AssetImage } from "@/components/asset-image";
 
 const FAQS = [
   {
@@ -67,10 +67,11 @@ export function Faq() {
         {/* Direct line to the founder — unique to FAQ */}
         <Reveal delay={1}>
           <div className="mt-10 flex flex-wrap items-center gap-5 rounded-2xl border border-border bg-background p-6 md:p-7">
-            <ImagePlaceholder
-              label="Founder headshot: Amaan, 96×96"
-              compact
-              className="size-12 shrink-0 rounded-full border-solid bg-card"
+            <AssetImage
+              src="/images/amaan-headshot.jpg"
+              alt="Amaan, founder of A&G Design"
+              position="object-top"
+              className="size-12 shrink-0 rounded-full"
             />
             <p className="min-w-52 flex-1 text-[15px] text-muted-foreground">
               <strong className="font-semibold text-foreground">

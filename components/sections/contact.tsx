@@ -4,7 +4,7 @@ import { useState } from "react";
 import { PhoneCall, Mail, MapPin, CheckCircle2, Loader2 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { Accent } from "@/components/accent";
-import { ImagePlaceholder } from "@/components/image-placeholder";
+import { AssetImage } from "@/components/asset-image";
 
 type Errors = Partial<Record<"name" | "company" | "email", string>>;
 
@@ -98,11 +98,12 @@ export function Contact() {
 
             {/* The A&G behind A&G Design — unique to contact */}
             <div className="mt-10 flex items-center gap-5 rounded-2xl border border-border bg-card/60 p-5">
-              <ImagePlaceholder
-                label="Photo: Amaan in the studio, 480×360"
+              <AssetImage
+                src="/images/amaan-headshot.jpg"
+                alt="Amaan, founder of A&G Design"
                 ratio="4/3"
+                position="object-top"
                 className="w-32 shrink-0 rounded-xl"
-                compact
               />
               <div>
                 <p className="text-[14.5px] text-muted-foreground">
