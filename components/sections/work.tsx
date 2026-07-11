@@ -7,60 +7,40 @@ import { Reveal } from "@/components/reveal";
 import { Accent } from "@/components/accent";
 import { AssetImage } from "@/components/asset-image";
 
-type CaseStudy = {
-  name: string;
-  location: string;
-  description: string;
-  results: { value: string; label: string }[];
-  tint: string;
-  screenshot: string;
-  src?: string;
-  position?: string;
+const PORTFOLIO = {
+  name: "Marathon Plumbing, Heating & Air",
+  location: "Redesign",
+  description:
+    "A conversion-first homepage for a multi-trade operation: quote form above the fold, trust badges, and a book-now / click-to-call header that follows you down the page.",
+  results: [
+    { value: "Above-fold", label: "quote form + service selector" },
+    { value: "1-tap", label: "book or call from any screen" },
+  ],
+  tint: "#e8b06a",
+  screenshot: "Marathon Plumbing, Heating & Air homepage",
+  src: "/images/portfolio-hvac-site.png",
+  position: "object-top",
 };
 
-const CASES: CaseStudy[] = [
+/* Not client work: directions we're ready to build in, shown honestly
+   as concepts rather than dressed up as case studies. */
+const DIRECTIONS = [
   {
-    name: "Marathon Plumbing, Heating & Air",
-    location: "Redesign",
+    name: "Commercial & maintenance contracts",
     description:
-      "A conversion-first homepage for a multi-trade operation: quote form above the fold, trust badges, and a book-now / click-to-call header that follows you down the page.",
-    results: [
-      { value: "Above-fold", label: "quote form + service selector" },
-      { value: "1-tap", label: "book or call from any screen" },
-    ],
-    tint: "#e8b06a",
-    screenshot: "Marathon Plumbing, Heating & Air homepage",
-    src: "/images/portfolio-hvac-site.png",
-    position: "object-top",
-  },
-  {
-    name: "Corrigan Mechanical",
-    location: "Commercial",
-    description:
-      "A commercial build centered on maintenance agreements and a 24/7 dispatch flow, designed for facility managers, not homeowners.",
-    results: [
-      { value: "B2B", label: "maintenance-contract funnel" },
-      { value: "24/7", label: "emergency dispatch flow" },
-    ],
+      "A build centered on service agreements and a 24/7 dispatch flow, designed for facility managers, not homeowners.",
     tint: "#7fb2d9",
-    screenshot: "Corrigan homepage screenshot, 1280×800",
   },
   {
-    name: "BlueRidge Comfort Systems",
-    location: "Family-owned",
+    name: "Family-owned & referral-driven",
     description:
-      "A warm, referral-friendly brand for a family company, with a heat-pump education hub built for the rebate-driven buyer.",
-    results: [
-      { value: "0.9s", label: "mobile load time on 4G" },
-      { value: "7", label: "pages incl. heat-pump guide" },
-    ],
+      "A warm, personal brand for a family company, with a heat-pump education hub built for the rebate-driven buyer.",
     tint: "#8fd0b8",
-    screenshot: "BlueRidge homepage screenshot, 1280×800",
   },
 ];
 
 /* Browser chrome holding the site screenshot; the tab strip carries
-   each build's accent tint. */
+   the build's accent tint. */
 function BrowserFrame({
   screenshot,
   tint,
@@ -90,7 +70,7 @@ function BrowserFrame({
         ratio="16/10"
         position={position}
         className="border-0"
-        sizes="(min-width: 1024px) 33vw, 100vw"
+        sizes="(min-width: 1024px) 55vw, 100vw"
         quality={95}
       />
     </div>
@@ -98,7 +78,7 @@ function BrowserFrame({
 }
 
 export function Work() {
-  const gridRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
   const [spriteActive, setSpriteActive] = useState(false);
   const reduceMotion = useReducedMotion();
 
@@ -107,7 +87,7 @@ export function Work() {
   const springX = useSpring(spriteX, { stiffness: 320, damping: 28, mass: 0.6 });
   const springY = useSpring(spriteY, { stiffness: 320, damping: 28, mass: 0.6 });
 
-  const onGridMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const onCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     spriteX.set(e.clientX - rect.left);
     spriteY.set(e.clientY - rect.top);
@@ -125,20 +105,19 @@ export function Work() {
             <Accent variant="ticks">Designed to book jobs.</Accent>
           </h2>
           <p className="mt-4 max-w-[56ch] text-[17px] text-muted-foreground">
-            Three builds from our portfolio, each designed around how a
-            different kind of HVAC company wins work, from late-night
-            emergency calls to commercial maintenance contracts.
+            Our first HVAC build, live and designed to book jobs. Below,
+            a couple of the directions we&apos;re ready to take the next one.
           </p>
         </Reveal>
 
+        {/* Real work: single spotlight case study */}
         <div
-          ref={gridRef}
-          onMouseMove={onGridMouseMove}
+          ref={cardRef}
+          onMouseMove={onCardMouseMove}
           onMouseEnter={() => setSpriteActive(true)}
           onMouseLeave={() => setSpriteActive(false)}
-          className="relative grid gap-6 lg:grid-cols-3"
+          className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-foreground/25 hover:shadow-lg hover:shadow-primary/5"
         >
-          {/* Cursor-following sprite (desktop pointers only) */}
           {!reduceMotion && (
             <motion.div
               className="pointer-events-none absolute left-0 top-0 z-20 hidden -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/25 lg:flex"
@@ -158,36 +137,58 @@ export function Work() {
             </motion.div>
           )}
 
-          {CASES.map((cs, i) => (
-            <Reveal key={cs.name} delay={i}>
-              <article className="group h-full overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-foreground/25 hover:shadow-lg hover:shadow-primary/5">
-                <div className="border-b border-border bg-gradient-to-b from-secondary/60 to-transparent px-6 pt-6">
-                  <BrowserFrame
-                    screenshot={cs.screenshot}
-                    tint={cs.tint}
-                    src={cs.src}
-                    position={cs.position}
+          <div className="grid gap-0 lg:grid-cols-[1.15fr_1fr] lg:items-center">
+            <div className="bg-gradient-to-br from-secondary/60 to-transparent p-6 lg:p-8">
+              <BrowserFrame
+                screenshot={PORTFOLIO.screenshot}
+                tint={PORTFOLIO.tint}
+                src={PORTFOLIO.src}
+                position={PORTFOLIO.position}
+              />
+            </div>
+            <div className="p-6 lg:p-10">
+              <div className="mb-2.5 flex items-center justify-between gap-2 lg:justify-start lg:gap-3">
+                <h3 className="text-xl font-bold tracking-tight lg:text-2xl">
+                  {PORTFOLIO.name}
+                </h3>
+                <span className="whitespace-nowrap rounded-full border border-border px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.08em] text-muted-foreground">
+                  {PORTFOLIO.location}
+                </span>
+              </div>
+              <p className="max-w-[46ch] text-[15px] text-muted-foreground">
+                {PORTFOLIO.description}
+              </p>
+              <ul className="mt-5 grid gap-2.5 border-t border-border pt-5">
+                {PORTFOLIO.results.map((r) => (
+                  <li key={r.label} className="text-sm text-muted-foreground">
+                    <strong className="mr-1.5 font-heading font-bold tabular-nums text-foreground">
+                      {r.value}
+                    </strong>
+                    {r.label}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Concept directions: honestly labeled, no fabricated metrics */}
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          {DIRECTIONS.map((d, i) => (
+            <Reveal key={d.name} delay={i}>
+              <article className="h-full rounded-2xl border border-dashed border-border bg-card/50 p-6">
+                <div className="mb-3 flex items-center justify-between gap-2">
+                  <span
+                    className="size-2.5 rounded-full"
+                    style={{ background: d.tint }}
+                    aria-hidden="true"
                   />
+                  <span className="whitespace-nowrap rounded-full border border-border px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.08em] text-muted-foreground">
+                    Concept direction
+                  </span>
                 </div>
-                <div className="p-6">
-                  <div className="mb-2.5 flex items-center justify-between gap-2">
-                    <h3 className="text-lg font-bold tracking-tight">{cs.name}</h3>
-                    <span className="whitespace-nowrap rounded-full border border-border px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.08em] text-muted-foreground">
-                      {cs.location}
-                    </span>
-                  </div>
-                  <p className="text-[14.5px] text-muted-foreground">{cs.description}</p>
-                  <ul className="mt-4 grid gap-2 border-t border-border pt-4">
-                    {cs.results.map((r) => (
-                      <li key={r.label} className="text-sm text-muted-foreground">
-                        <strong className="mr-1.5 font-heading font-bold tabular-nums text-foreground">
-                          {r.value}
-                        </strong>
-                        {r.label}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <h3 className="text-base font-bold tracking-tight">{d.name}</h3>
+                <p className="mt-2 text-[14px] text-muted-foreground">{d.description}</p>
               </article>
             </Reveal>
           ))}
