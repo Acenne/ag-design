@@ -65,7 +65,9 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-4">
           <a
-            href="#contact"
+            href="https://calendly.com/agdesignworks-info/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden min-h-10 cursor-pointer items-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:-translate-y-px hover:bg-primary/90 active:scale-[0.97] sm:inline-flex"
           >
             Book a call
@@ -108,7 +110,9 @@ export function SiteHeader() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="https://calendly.com/agdesignworks-info/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
             className="mt-5 inline-flex min-h-12 cursor-pointer items-center justify-center rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground"
           >
