@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { PhoneCall, Mail, MapPin, CheckCircle2, Loader2 } from "lucide-react";
+import { PhoneCall, Mail, MapPin, CheckCircle2, Loader2, AlertCircle } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { Accent } from "@/components/accent";
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xeeyoabo";
 
 type Errors = Partial<Record<"name" | "company" | "email", string>>;
 
@@ -22,7 +24,7 @@ function validate(values: { name: string; company: string; email: string }): Err
 export function Contact() {
   const [values, setValues] = useState({ name: "", company: "", email: "", message: "" });
   const [errors, setErrors] = useState<Errors>({});
-  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const setField = (field: keyof typeof values) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setValues((v) => ({ ...v, [field]: e.target.value }));
@@ -36,7 +38,7 @@ export function Contact() {
     setErrors((prev) => ({ ...prev, [field]: fieldErrors[field] }));
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const nextErrors = validate(values);
     setErrors(nextErrors);
@@ -45,12 +47,20 @@ export function Contact() {
       document.getElementById(`f-${firstInvalid}`)?.focus();
       return;
     }
-    // Demo submit: swap for a real endpoint (Formspree, Resend, your CRM)
+
     setStatus("loading");
-    window.setTimeout(() => {
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(values),
+      });
+      if (!res.ok) throw new Error("Form submission failed");
       setStatus("success");
       setValues({ name: "", company: "", email: "", message: "" });
-    }, 900);
+    } catch {
+      setStatus("error");
+    }
   };
 
   const inputClass =
@@ -179,6 +189,17 @@ export function Contact() {
                 >
                   <CheckCircle2 className="mt-0.5 size-[18px] shrink-0" aria-hidden="true" />
                   Thanks, your request is in. We&apos;ll be in touch within one business day.
+                </p>
+              )}
+
+              {status === "error" && (
+                <p
+                  role="alert"
+                  className="flex items-start gap-2.5 rounded-xl border border-destructive/25 bg-destructive/10 px-4 py-3.5 text-[14.5px] text-destructive"
+                >
+                  <AlertCircle className="mt-0.5 size-[18px] shrink-0" aria-hidden="true" />
+                  Something went wrong sending that. Please try again, or email us
+                  directly at info@agdesignworks.com.
                 </p>
               )}
             </form>

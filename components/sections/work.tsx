@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { Accent } from "@/components/accent";
 import { AssetImage } from "@/components/asset-image";
@@ -20,6 +20,7 @@ const PORTFOLIO = {
   screenshot: "Marathon Plumbing, Heating & Air homepage",
   src: "/images/portfolio-hvac-site.png",
   position: "object-top",
+  href: "https://test-662a00.webflow.io/",
 };
 
 /* Not client work: directions we're ready to build in, shown honestly
@@ -78,7 +79,7 @@ function BrowserFrame({
 }
 
 export function Work() {
-  const cardRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLAnchorElement>(null);
   const [spriteActive, setSpriteActive] = useState(false);
   const reduceMotion = useReducedMotion();
 
@@ -87,7 +88,7 @@ export function Work() {
   const springX = useSpring(spriteX, { stiffness: 320, damping: 28, mass: 0.6 });
   const springY = useSpring(spriteY, { stiffness: 320, damping: 28, mass: 0.6 });
 
-  const onCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const onCardMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     spriteX.set(e.clientX - rect.left);
     spriteY.set(e.clientY - rect.top);
@@ -110,13 +111,17 @@ export function Work() {
           </p>
         </Reveal>
 
-        {/* Real work: single spotlight case study */}
-        <div
+        {/* Real work: single spotlight case study, links to the live site */}
+        <a
           ref={cardRef}
+          href={PORTFOLIO.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`View the ${PORTFOLIO.name} live site (opens in a new tab)`}
           onMouseMove={onCardMouseMove}
           onMouseEnter={() => setSpriteActive(true)}
           onMouseLeave={() => setSpriteActive(false)}
-          className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-foreground/25 hover:shadow-lg hover:shadow-primary/5"
+          className="group relative block cursor-pointer overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-foreground/25 hover:shadow-lg hover:shadow-primary/5"
         >
           {!reduceMotion && (
             <motion.div
@@ -168,9 +173,13 @@ export function Work() {
                   </li>
                 ))}
               </ul>
+              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground lg:hidden">
+                View live site
+                <ExternalLink className="size-3.5" strokeWidth={2} aria-hidden="true" />
+              </span>
             </div>
           </div>
-        </div>
+        </a>
 
         {/* Concept directions: honestly labeled, no fabricated metrics */}
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
